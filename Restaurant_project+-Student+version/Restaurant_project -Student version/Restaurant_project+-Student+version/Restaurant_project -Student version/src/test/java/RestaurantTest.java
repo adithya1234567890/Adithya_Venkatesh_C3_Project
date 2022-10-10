@@ -1,9 +1,6 @@
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class RestaurantTest {
@@ -79,12 +76,12 @@ LocalTime restaurant_open = LocalTime.parse("11:30:00");
 @Test
 public void get_total_cost(){
 Restaurant r= Mockito.spy(restaurant);
-r.addToMenu("Butter Naan", Integer.parseInt("150"));
-r.addToMenu("Paneer Butter Masala", Integer.parseInt("350"));
-r.addToMenu("Biryani", Integer.parseInt("200"));
+r.addToMenu("Butter Naan", "150");
+r.addToMenu("Paneer Butter Masala", "350");
+r.addToMenu("Biryani", "200");
 List<String> items=new ArrayList<>();
 items.add("Biryani");
 items.add("Paneer Butter Masala");
-assertEquals(550, r.getItemPrice(items));
+assertEquals(550, r.totalOrderCost(items));
 }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
